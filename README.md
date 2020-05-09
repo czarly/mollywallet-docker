@@ -31,7 +31,7 @@ From a command line in the root folder of this repository execute
 ./run-molly.sh
 ```
 
-The GUI wallet should show up now.
+The GUI wallet should show up now. The interface will get stuck while downloading the dependencies. Give it some time to download 2 .jar files with about 50 MB each to the config folder. Kill the app from the terminal window and run the command again.
 
 ## Keyfiles
 

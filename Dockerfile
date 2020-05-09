@@ -1,14 +1,19 @@
-FROM debian:latest
+FROM golang
 
-RUN apt-get update && apt-get -y install libwebkit2gtk-4.0 default-jre-headless --no-install-recommends && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get -y install npm libgtk-3-dev libwebkit2gtk-4.0-dev default-jre-headless --no-install-recommends
 
+RUN npm install n -g && n latest
 
-COPY ./mollywallet_debian /mollywallet
-RUN chmod +x /mollywallet
+ENV GO111MODULE=on
 
-COPY ./cl-wallet.jar /root/.dag/cl-wallet.jar
-COPY ./cl-keytool.jar /root/.dag/cl-keytool.jar
+RUN go get -u github.com/wailsapp/wails/cmd/wails
+
+RUN cd $GOPATH && git clone https://github.com/grvlle/constellation_wallet.git
+
+RUN cd constellation_wallet && wails build
 
 VOLUME /keys
+VOLUME /root/.dag
 
-CMD /mollywallet
+CMD /go/constellation_wallet/build/mollywallet
+
