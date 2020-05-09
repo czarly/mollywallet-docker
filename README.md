@@ -1,8 +1,10 @@
+# mollywallet-docker
+
 This repository contains the constellation gui wallet to be run in a docker container.
 
 I couldn't run the official client on a slightly outdated MacOS version, so I used the Linux version to create this docker image.
 
-# Requirements 
+## Requirements 
 
 I use this to run Molly Wallet on MacOS Mojave.
 
@@ -11,7 +13,7 @@ I use this to run Molly Wallet on MacOS Mojave.
 * Quit & restart XQuartz (to activate the setting)
 * Install [Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/)
 
-# Build
+## Build
 
 Now run XQuartz, and select the Terminal app from the application menu in the XQuartz menu bar.
 
@@ -21,7 +23,7 @@ Change the directory to the root folder of this repository and run
 docker build -t czarly/mollywallet .
 ```
 
-# Run
+## Run
 
 From a command line in the root folder of this repository execute
 
@@ -31,7 +33,7 @@ From a command line in the root folder of this repository execute
 
 The GUI wallet should show up now.
 
-# Keyfiles
+## Keyfiles
 
 If you create a wallet you should select */keys* folder that is mounted to the keys folder in the repository folder. You can import keyfiles from that folder as well. 
 **Please backup the keys folder** as if you loose it you also loose access to your funds.
